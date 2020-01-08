@@ -62,5 +62,4 @@ def included_test():
 
 if __name__ == '__main__':
     included_test()
-    print()
     print("Tests success!")
