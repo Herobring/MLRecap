@@ -11,7 +11,7 @@ class Model:
         raise NotImplemented()
 
     def evaluate(self, x: np.ndarray, y: np.ndarray)->str:
-        raise NotImplemented()
+        return str(np.square(self.predict(x) - y).mean(axis=None))
 
 
 class LinearReg(Model):
@@ -31,9 +31,6 @@ class LinearReg(Model):
         ons = np.ones((x.shape[0], 1))
         x = np.concatenate((ons, x), axis=1)
         return np.dot(x, self.b)
-
-    def evaluate(self, x: np.ndarray, y: np.ndarray)->str:
-        return str(np.square(self.predict(x) - y).mean(axis=None))
 
 
 class NonLinearReg(Model):

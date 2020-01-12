@@ -1,21 +1,24 @@
 import numpy as np
 
 
-class Neuron():
+class Neuron:
 
-    def __init__(self, weights: np.ndarray, b: float):
-        self.b = b
-        self.weights = weights
+    def __init__(self, weights: np.ndarray):
+        self.weights = weights.transpose()
+
+    @staticmethod
+    def _ones(x: np.ndarray)->np.ndarray:
+        ones = np.ones((x.shape[0], 1))
+        return np.hstack([ones, x])
 
     def apply(self, x: np.ndarray):
-        return np.dot(self.weights, x) + self.b
+        return np.dot(Neuron._ones(x), self.weights)
 
-    def update(self, weights: np.ndarray, b: float):
-        self.b = self.b + b
+    def update(self, weights: np.ndarray):
         self.weights = np.add(self.weights, weights)
 
     def __str__(self):
-        return "{{Neuron:{}+{}}}".format(self.weights, self.b)
+        return "{{Neuron:{}}}".format(self.weights)
 
 
 def base_test():

@@ -10,3 +10,6 @@ ie:
 [3.1057958233902085e-18, 8.442428349625602e-18, 2.2948899570854758e-17, 0.26894142136999516, 0.7310585786300048]
 ```
 thus acts a bit like rectification 
+
+------
+Could be useful to set d(sigm) as activation function.
