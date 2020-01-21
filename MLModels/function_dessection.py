@@ -42,7 +42,7 @@ def fun_gen(inner_f, interval):
 
 
 def sigm(x):
-    return 1 / (1 + math.exp(-x))
+    return 1 / (1 + np.exp(-x))
 
 
 def sigm_d(x):
@@ -55,6 +55,11 @@ def sigm_dd(x):
 
 def mse(x, y):
     return np.square(x-y)
+
+
+def mae(x, y):
+    return x-y
+
 
 if __name__ == '__main__':
     print('Start')
